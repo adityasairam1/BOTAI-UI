@@ -1,0 +1,41 @@
+.form-container {
+  max-width: 400px;
+  margin: auto;
+  padding: 25px;
+  background: white;
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.input-block {
+  margin-top: 15px;
+}
+
+.input-block label {
+  display: block;
+  margin-bottom: 5px;
+  font-weight: bold;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  border-radius: var(--radius);
+  border: 1px solid #ccc;
+}
+
+button {
+  width: 100%;
+  margin-top: 20px;
+  padding: 12px;
+  background: var(--primary);
+  border: none;
+  color: white;
+  border-radius: var(--radius);
+  cursor: pointer;
+  font-size: 16px;
+}
+
+button:hover {
+  background: var(--primary-dark);
+}

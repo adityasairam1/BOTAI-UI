@@ -1,0 +1,7 @@
+:root {
+  --primary: #0078ff;
+  --primary-dark: #005fcc;
+  --radius: 8px;
+  --shadow: 0px 4px 20px rgba(0, 0, 0, 0.1);
+  --font-main: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+}
