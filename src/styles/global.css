@@ -5,10 +5,24 @@
 body {
   margin: 0;
   padding: 0;
-  background: #f5f6fa;
+  background: var(--bg-light);
   font-family: var(--font-main);
+  color: var(--text-primary);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
 
 #root {
   min-height: 100vh;
+}
+
+/* Smooth scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection color */
+::selection {
+  background: var(--primary-light);
+  color: white;
 }

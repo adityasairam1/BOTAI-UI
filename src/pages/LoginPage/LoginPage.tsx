@@ -37,7 +37,7 @@ export default function LoginPage() {
       localStorage.setItem("user", JSON.stringify(result.user));
 
       // Redirect to dashboard or home
-      navigate("/dashboard");
+      navigate("/chat");
     } catch (err: any) {
       console.error("Login error:", err);
       setError(err.message);
