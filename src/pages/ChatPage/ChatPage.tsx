@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect } from "react";
+import { sendChatMessage } from "../../api/auth";
 import "./ChatPage.css";
 
 interface Message {
@@ -27,13 +28,7 @@ const ChatPage: React.FC = () => {
 
     // Call backend for AI response
     try {
-      const res = await fetch("http://localhost:8000/api/chat", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ message: currentInput }),
-      });
-
-      const data = await res.json();
+      const data = await sendChatMessage(currentInput);
       const botMessage: Message = { role: "bot", content: data.reply };
 
       setMessages((prev) => [...prev, botMessage]);
