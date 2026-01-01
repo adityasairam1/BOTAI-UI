@@ -82,12 +82,25 @@ export async function sendChatMessage(message: string) {
       body: JSON.stringify(requestData),
     });
 
-    const result = await response.json();
-
+    // Check if response is ok before trying to parse JSON
     if (!response.ok) {
-      throw new Error(result.message || "Failed to get chat response");
+      let errorMessage = "Failed to get chat response";
+      try {
+        const errorData = await response.json();
+        errorMessage = errorData.message || errorData.detail || errorMessage;
+      } catch (parseError) {
+        // If JSON parsing fails, try to get text
+        try {
+          const errorText = await response.text();
+          errorMessage = errorText || errorMessage;
+        } catch (textError) {
+          errorMessage = `HTTP ${response.status}: ${response.statusText}`;
+        }
+      }
+      throw new Error(errorMessage);
     }
 
+    const result = await response.json();
     return result; // Contains: { reply: "..." }
   } catch (err: any) {
     console.error("Chat API error:", err);
